@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Vérifie si la variable $CFILE est définie
+if [ -z "$CFILE" ]; then
+    echo "Erreur: La variable \$CFILE n'est pas définie."
+    exit 1
+fi
+
+# Exécute le préprocesseur sur le fichier C et sauvegarde la sortie dans 'c'
+gcc -E "$CFILE" -o c
