@@ -1,9 +1,5 @@
-#include <stdio.h>
-#include <string.h>
-#include <math.h>
-#include <ctype.h>
-#include <unistd.h>
-#include <stddef.h>
+#ifndef MAIN_H
+#define MAIN_H
 
 void reset_to_98(int *n);
 
@@ -57,4 +53,7 @@ char *_strstr(char *haystack, char *needle);
 
 void print_chessboard(char (*a)[8]);
 
+void print_diagsums(int *a, int size);
 
+
+#endif
