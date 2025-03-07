@@ -1,40 +1,33 @@
 #include "main.h"
-/**
- * check_prime - Recursively checks if a number is prime
- * @n: The number to check
- * @i: The current divisor being tested
- * Return: 1 if prime, 0 otherwise
- */
-int check_prime(int n, int i)
-{
-	if (i * i > n)
-	return (1);
-	if (n % i == 0)
-	return (0);
-	return (check_prime(n, i + 1));
-}
-
 
 /**
- * is_prime_number - Checks if a number is prime
- * @n: The number to check
- * Return: 1 if prime, 0 otherwise
+ * is_prime_number - checks if a number is prime
+ * @n: number to check
+ * Return: 1 if prime, 0 if not
  */
 int is_prime_number(int n)
 {
-	int i;
-
 	if (n <= 1)
-	return (0);
+		return (0);
 	if (n == 2)
-	return (1);
+		return (1);
 	if (n % 2 == 0)
-	return (0);
+		return (0);
+	return (check_odd_factors(n, 3));
+}
 
-	for (i = 3; i * i <= n; i += 2)
-	{
+/**
+ * check_odd_factors - checks if a number has an odd factor
+ * @n: number to check
+ * @i: current number to check
+ *
+ * Return: 1 if no odd factor, 0 if odd factor
+ */
+int check_odd_factors(int n, int i)
+{
+	if (i * i > n)
+		return (1);
 	if (n % i == 0)
-	return (0);
-	}
-	return (1);
+		return (0);
+	return (check_odd_factors(n, i + 2));
 }
